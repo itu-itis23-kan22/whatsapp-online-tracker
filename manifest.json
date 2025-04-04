@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "WhatsApp Online Tracker",
+  "version": "2.0",
+  "description": "Track contacts' online status and typing notifications / Kişilerin çevrimiçi olma durumlarını ve yazıyor bildirimlerini takip et",
+  "permissions": [
+    "storage",
+    "notifications",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://web.whatsapp.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://web.whatsapp.com/*"],
+      "js": ["js/i18n.js", "js/content.js"],
+      "css": ["css/content.css"]
+    }
+  ],
+  "background": {
+    "service_worker": "js/background.js"
+  }
+} 

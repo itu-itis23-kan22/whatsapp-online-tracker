@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WhatsApp Online Tracker 2.0</title>
+  <link rel="stylesheet" href="css/popup.css">
+  <script src="js/i18n.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>WhatsApp Online Tracker <span class="version">2.0</span></h1>
+    
+    <div class="section">
+      <h2 data-i18n="trackedContacts">İzlenen Kişiler</h2>
+      <div class="contact-list" id="tracked-contacts">
+        <!-- İzlenen kişiler burada gösterilecek -->
+      </div>
+      <div class="button-group">
+        <button id="add-contact" class="btn" data-i18n="addContact">Kişi Ekle</button>
+        <button id="btnAddCurrent" class="btn btn-primary" data-i18n="addCurrentContact">Aktif Sohbeti Ekle</button>
+      </div>
+      <form id="contactForm" class="add-contact-form">
+        <input type="text" id="contactName" data-i18n-placeholder="contactName" placeholder="Kişi adı">
+        <button type="submit" class="btn" data-i18n="add">Ekle</button>
+      </form>
+      <p class="info-message" data-i18n="contactAddInfo">Not: Tam olarak WhatsApp'taki gibi kişi adını yazın. Kişi çevrimiçi olduğunda bildirim alacaksınız.</p>
+    </div>
+    
+    <div class="section">
+      <h2 data-i18n="onlineStatus">Çevrimiçi Durumu</h2>
+      <div id="online-status">
+        <!-- Çevrimiçi durum bilgileri burada gösterilecek -->
+      </div>
+    </div>
+    
+    <div class="section">
+      <h2 data-i18n="settings">Ayarlar</h2>
+      <div class="settings">
+        <div class="setting">
+          <label for="notification-toggle" data-i18n="notificationsEnabled">Bildirimler açık</label>
+          <input type="checkbox" id="notification-toggle" checked>
+        </div>
+        <div class="setting">
+          <label for="history-toggle" data-i18n="saveHistoryEnabled">Geçmişi Kaydet</label>
+          <input type="checkbox" id="history-toggle" checked>
+        </div>
+        <div class="setting">
+          <label for="check-interval" data-i18n="checkInterval">Kontrol Sıklığı (saniye)</label>
+          <input type="number" id="check-interval" min="5" max="60" value="10">
+        </div>
+        <div class="setting">
+          <label for="debug-mode-toggle" data-i18n="debugModeEnabled">Hata Ayıklama Modu</label>
+          <input type="checkbox" id="debug-mode-toggle">
+        </div>
+        <div class="setting">
+          <label for="language-select" data-i18n="language">Dil</label>
+          <select id="language-select">
+            <option value="tr" data-i18n="languageTr">Türkçe</option>
+            <option value="en" data-i18n="languageEn">İngilizce</option>
+          </select>
+        </div>
+        
+        <!-- Otomatik sohbet açma ayarları -->
+        <div class="setting-group">
+          <h3 data-i18n="autoOpenChatsTitle">Otomatik Sohbet Açma</h3>
+          <p class="setting-description" data-i18n="autoOpenChatsDescription">Bu özellik, çevrimiçi durumlarını görmek için takip edilen kişilerin sohbetlerini otomatik olarak açıp kapatır.</p>
+          
+          <div class="setting">
+            <label for="auto-open-toggle" data-i18n="autoOpenChatsEnabled">Otomatik sohbet açma etkin</label>
+            <input type="checkbox" id="auto-open-toggle">
+          </div>
+          <div class="setting">
+            <label for="auto-open-interval" data-i18n="autoOpenInterval">Tarama aralığı (saniye)</label>
+            <input type="number" id="auto-open-interval" min="30" max="600" value="180">
+          </div>
+          <p class="setting-info" data-i18n="autoOpenChatsWarning">Not: Bu özellik, WhatsApp Web sayfanızda görünür şekilde sohbetleri açıp kapatacaktır.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h2 data-i18n="history">Geçmiş</h2>
+      <div class="tabs">
+        <div class="tab-buttons">
+          <button class="tab-button active" data-tab="all" data-i18n="allHistory">Tümü</button>
+          <button class="tab-button" data-tab="online" data-i18n="onlineHistory">Çevrimiçi</button>
+          <button class="tab-button" data-tab="offline" data-i18n="offlineHistory">Çevrimdışı</button>
+          <button class="tab-button" data-tab="typing" data-i18n="typingHistory">Yazıyor</button>
+        </div>
+        <div class="tab-content">
+          <div id="history-log" class="tab-pane active" data-tab="all">
+            <!-- Tüm geçmiş burada gösterilecek -->
+          </div>
+          <div id="history-log-online" class="tab-pane" data-tab="online">
+            <!-- Çevrimiçi geçmişi burada gösterilecek -->
+          </div>
+          <div id="history-log-offline" class="tab-pane" data-tab="offline">
+            <!-- Çevrimdışı geçmişi burada gösterilecek -->
+          </div>
+          <div id="history-log-typing" class="tab-pane" data-tab="typing">
+            <!-- Yazıyor geçmişi burada gösterilecek -->
+          </div>
+        </div>
+      </div>
+      <button id="export-history" class="btn" data-i18n="exportHistory">Geçmişi Dışa Aktar</button>
+      <button id="clear-history" class="btn btn-danger" data-i18n="clearHistory">Geçmişi Temizle</button>
+    </div>
+    
+    <div class="footer">
+      <p>WhatsApp Online Tracker v2.0</p>
+    </div>
+  </div>
+  
+  <script src="js/i18n.js"></script>
+  <script src="js/popup.js"></script>
+</body>
+</html> 
